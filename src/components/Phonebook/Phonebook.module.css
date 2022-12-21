@@ -1,0 +1,45 @@
+.container {
+    margin-right: 50px;
+    margin-left: 50px;
+    
+}
+    
+.form_phonebook {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 300px;
+    padding: 20px 40px;
+    border: 1px black solid;
+}
+.form_phonebook:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 10px;
+    height: 3em;
+    background-color: #57dada;
+    color: black;
+    border-radius: 5px;
+    border: 0;
+}
+button:hover, button:focus {
+    background-color: #44aaaa;
+}
+
+.form_phonebook > button {
+    margin-left: 5px;
+}
+
+.mark_name, .mark_number, input {
+    display: block;
+    margin-bottom: 10px;
+}
+input {
+    padding: 5px 10px 5px 20px;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
