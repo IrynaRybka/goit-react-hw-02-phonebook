@@ -17,6 +17,7 @@ class ContactForm extends Component {
   formSubmit = (event) => {
     event.preventDefault();
     this.props.onSubmitForm(this.state);
+    this.props.onincludeThisName(this.state.name);
     this.reset();
   };
 

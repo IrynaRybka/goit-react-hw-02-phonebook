@@ -47,13 +47,23 @@ export class App extends Component {
     );
   };
 
+  includeThisName = (contactName) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.map(contact => { if (contact.name === contactName) {
+        return alert("не не не");
+      }
+    return contactName })
+    }))
+    
+  }
+
   render() {
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
 
     return (
       <div>
-         <ContactForm onSubmitForm={this.takeDataFormSubmit} /> 
+         <ContactForm onSubmitForm={this.takeDataFormSubmit} onincludeThisName={this.includeThisName} /> 
         <ContactsFilter onChange={this.changeFilterContact} value={filter} />
         <ContactList
           contacts={visibleContacts}
