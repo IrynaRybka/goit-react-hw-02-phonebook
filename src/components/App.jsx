@@ -47,15 +47,15 @@ export class App extends Component {
     );
   };
 
-  includeThisName = (contactName) => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.map(contact => { if (contact.name === contactName) {
-        return alert("не не не");
-      }
-    return contactName })
-    }))
+  includeThisName = contactName => {
+    if (this.state.contacts.some(contact => contact.name === contactName)) {
+      alert(`${contactName} is alredy in contacts`);
+      return true;
+    }
+    return false;
+  };
     
-  }
+  
 
   render() {
     const { filter } = this.state;

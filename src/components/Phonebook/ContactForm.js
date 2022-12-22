@@ -14,10 +14,12 @@ class ContactForm extends Component {
     this.setState({ [name]: value });
   };
 
-  formSubmit = (event) => {
+  formSubmit = event => {
     event.preventDefault();
+    if (this.props.onincludeThisName(this.state.name)) {
+      return;
+    }
     this.props.onSubmitForm(this.state);
-    this.props.onincludeThisName(this.state.name);
     this.reset();
   };
 
