@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { Formik, Form, Field } from 'formik';
 import css from './Phonebook.module.css';
-
-
 class ContactForm extends Component {
   state = {
     name: '',
@@ -32,11 +29,10 @@ class ContactForm extends Component {
       <div className={css.container}>
         <section>
           <h1>Phonebook</h1>
-          <Formik initialValues={this.state.name}>
-          <Form autoComplete='off' className={css.form_phonebook} onSubmit={this.formSubmit}>
+          <form autoComplete='off' className={css.form_phonebook} onSubmit={this.formSubmit}>
             <label htmlFor="name" className={css.mark_name}>
               Name
-              <Field
+              <input
                 value={this.state.name}
                 onChange={this.phoneInputChange}
                 type="text"
@@ -48,7 +44,7 @@ class ContactForm extends Component {
             </label>
             <label htmlFor="number" className={css.mark_number}>
               Number
-              <Field
+              <input
                 value={this.state.number}
                 onChange={this.phoneInputChange}
                 type="tel"
@@ -59,8 +55,7 @@ class ContactForm extends Component {
               />
             </label>
             <button type="submit">Add contact</button>
-          </Form>
-          </Formik>
+          </form>
         </section>
       </div>
     );

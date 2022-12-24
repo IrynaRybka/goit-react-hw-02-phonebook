@@ -36,7 +36,6 @@ export class App extends Component {
   };
 
   changeFilterContact = text => {
-    text.preventDefault();
     this.setState({ filter: text.currentTarget.value });
   };
 
