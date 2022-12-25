@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import css from './Phonebook.module.css';
+import PropTypes from 'prop-types';
+import css from './ContactForm.module.css';
+
 class ContactForm extends Component {
   state = {
     name: '',
@@ -26,10 +28,13 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <div className={css.container}>
+      <div>
         <section>
-          <h1>Phonebook</h1>
-          <form autoComplete='off' className={css.form_phonebook} onSubmit={this.formSubmit}>
+          <form
+            autoComplete="off"
+            className={css.form_phonebook}
+            onSubmit={this.formSubmit}
+          >
             <label htmlFor="name" className={css.mark_name}>
               Name
               <input
@@ -61,4 +66,8 @@ class ContactForm extends Component {
     );
   }
 }
+ContactForm.propTypes = {
+  onSubmitForm: PropTypes.func.isRequired,
+  onincludeThisName: PropTypes.func.isRequired,
+};
 export default ContactForm;

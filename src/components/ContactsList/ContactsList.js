@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import css from '../Phonebook/Phonebook.module.css';
+import css from './ContactList.module.css';
 
 const ContactList = ({ contacts, onDeleteContact }) => (
-  <div className={css.container}>
+  <div>
     <ul>
       {contacts.map(({ id, name, number }) => (
-        <li key={id}>
+        <li key={id} className={css.contact_list}>
           <p>
             <span>{name}:</span>
             <span>{number}</span>
@@ -19,5 +20,9 @@ const ContactList = ({ contacts, onDeleteContact }) => (
     </ul>
   </div>
 );
+ContactList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  onDeleteContact: PropTypes.func.isRequired,
+};
 
 export default ContactList;

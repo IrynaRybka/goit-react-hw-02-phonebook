@@ -1,17 +1,21 @@
 import React from 'react';
-// import { nanoid } from 'nanoid';
-import css from '../Phonebook/Phonebook.module.css';
+import PropTypes from 'prop-types';
+
+import css from './ContactsFilter.module.css';
 
 const ContactsFilter = ({ onChange, value }) => {
   return (
-    <section className={css.container}>
-      <h1>Contacts</h1>
+    <section>
       <label className={css.mark_name}>
         Find contacts by name
         <input onChange={onChange} value={value} type="text"></input>
       </label>
     </section>
   );
+};
+ContactsFilter.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default ContactsFilter;

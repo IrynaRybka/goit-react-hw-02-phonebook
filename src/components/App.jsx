@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
-import ContactForm from './Phonebook/ContactForm';
-import ContactsFilter from './Phonebook/ContactsFilter';
-import ContactList from './Phonebook/ContactsList';
+import ContactForm from './ContactForm/ContactForm';
+import ContactsFilter from './ContactFilter/ContactsFilter';
+import ContactList from './ContactsList/ContactsList';
+
+import css from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -23,7 +25,7 @@ export class App extends Component {
       name: data.name,
       number: data.number,
     };
-    
+
     this.setState(prevState => ({
       contacts: [contact, ...prevState.contacts],
     }));
@@ -53,16 +55,19 @@ export class App extends Component {
     }
     return false;
   };
-    
-  
 
   render() {
     const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div>
-         <ContactForm onSubmitForm={this.takeDataFormSubmit} onincludeThisName={this.includeThisName} /> 
+      <div className={css.container}>
+        <h1>Phonebook</h1>
+        <ContactForm
+          onSubmitForm={this.takeDataFormSubmit}
+          onincludeThisName={this.includeThisName}
+        />
+        <h2>Contacts</h2>
         <ContactsFilter onChange={this.changeFilterContact} value={filter} />
         <ContactList
           contacts={visibleContacts}
